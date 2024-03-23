@@ -93,6 +93,8 @@ function App() {
           <button
             onMouseDown={() => setPressedKey("ArrowUp")}
             onMouseUp={() => setPressedKey(null)}
+            onTouchStart={() => setPressedKey("ArrowUp")}
+            onTouchEnd={() => setPressedKey(null)}
             className={`col-end-3 row-start-1 h-20 w-20 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300 ${
               pressedKey === "ArrowUp" ? "scale-75 bg-yellow-300" : ""
             }`}
@@ -102,6 +104,8 @@ function App() {
           <button
             onMouseDown={() => setPressedKey("ArrowLeft")}
             onMouseUp={() => setPressedKey(null)}
+            onTouchStart={() => setPressedKey("ArrowLeft")}
+            onTouchEnd={() => setPressedKey(null)}
             className={`col-end-2 row-start-2 h-20 w-20 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300 ${
               pressedKey === "ArrowLeft" ? "scale-75 bg-yellow-300" : ""
             }`}
@@ -111,6 +115,8 @@ function App() {
           <button
             onMouseDown={() => setPressedKey("ArrowRight")}
             onMouseUp={() => setPressedKey(null)}
+            onTouchStart={() => setPressedKey("ArrowRight")}
+            onTouchEnd={() => setPressedKey(null)}
             className={`col-end-4 row-start-2 h-20 w-20 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300  ${
               pressedKey === "ArrowRight" ? "scale-75 bg-yellow-300" : ""
             }`}
@@ -120,6 +126,8 @@ function App() {
           <button
             onMouseDown={() => setPressedKey("ArrowDown")}
             onMouseUp={() => setPressedKey(null)}
+            onTouchStart={() => setPressedKey("ArrowDown")}
+            onTouchEnd={() => setPressedKey(null)}
             className={`col-end-3 row-start-3 h-20 w-20 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300  ${
               pressedKey === "ArrowDown" ? "scale-75 bg-yellow-300" : ""
             }`}
