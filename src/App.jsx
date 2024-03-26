@@ -11,6 +11,22 @@ function App() {
   const playgroundBorder = 4;
   const playgroundDiv = useRef(null);
   const targetDiv = useRef(null);
+  
+  // RANDOM SPAWN CIRCLE(playground, circlePos)
+  useEffect(() => {
+    const generateRandomNumber = (min, max, excludedMin, excludedMax) => {
+      let randomValue;
+      do {
+        randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+      } while (randomValue >= excludedMin && randomValue <= excludedMax);
+      return randomValue;
+    };
+  
+    const newY = generateRandomNumber(0, playgroundDiv.current.clientHeight - 2 * 4 - 25/2, 20, 170);
+    const newX = generateRandomNumber(0, playgroundDiv.current.clientWidth - ( 2 * 4 ) - 25/2, 800, 950);
+  
+    setCirclePos({ x: newX, y: newY });
+  }, []);
 
   //KEYBOARD(pressedKey)
   useEffect(() => {
@@ -77,21 +93,6 @@ function App() {
   }, [pressedKey]);
 
 
-  // RANDOM SPAWN CIRCLE(playground, circlePos)
-  useEffect(() => {
-    const generateRandomNumber = (min, max, excludedMin, excludedMax) => {
-      let randomValue;
-      do {
-        randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
-      } while (randomValue >= excludedMin && randomValue <= excludedMax);
-      return randomValue;
-    };
-
-    const newY = generateRandomNumber(0, playgroundDiv.current.clientHeight - 2 * 4 - 25/2, 20, 170);
-    const newX = generateRandomNumber(0, playgroundDiv.current.clientWidth - ( 2 * 4 ) - 25/2, 800, 950);
-
-    setCirclePos({ x: newX, y: newY });
-  }, []);
 
 
   // WIN??(circlePos, success)

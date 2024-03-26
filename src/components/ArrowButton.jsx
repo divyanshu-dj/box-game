@@ -4,7 +4,6 @@ const ArrowButton = ({
   pressedKey,
   setPressedKey,
   direction,
-  positionInGrid,
 }) => {
 
   const emoji = (direction) => {
@@ -19,6 +18,20 @@ const ArrowButton = ({
         return "↓";
     }
   };
+
+  const grid = (direction) => {
+    switch (direction) {
+      case "ArrowUp":
+        return "row-start-1 col-start-2";
+      case "ArrowLeft":
+        return "row-start-2 col-start-1";
+      case "ArrowRight":
+        return "row-start-2 col-start-3";
+      case "ArrowDown":
+        return "row-start-3 col-start-2";
+    }
+  }
+  
   
   return (
     <button
@@ -26,7 +39,7 @@ const ArrowButton = ({
       onMouseUp={() => setPressedKey(null)}
       onTouchStart={() => setPressedKey(direction)}
       onTouchEnd={() => setPressedKey(null)}
-      className={`row-start-${positionInGrid.row} col-start-${positionInGrid.col} min-h-10 min-w-10 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300 ${
+      className={`${grid(direction)} min-h-10 min-w-10 border-2 rounded-md border-black bg-slate-300  transition-transform duration-300 active:scale-75 active:bg-yellow-300 ${
         pressedKey === direction ? "scale-75 bg-yellow-300" : ""}`}
     >
       {emoji(direction)}
