@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import ArrowButton from './ArrowButton'
 
-const ArrowButtonGrid = ({pressedKey, setPressedKey}) => {
+const ArrowButtonGrid = ({pressedKey, setPressedKey, up, left, right, down}) => {
+  
   return (
-    <div className='arrow-buttons grid grid-cols-3 grid-rows-3 gap-1'>
-        <ArrowButton direction={"ArrowUp"} positionInGrid={{row:1, col:2}} pressedKey={pressedKey} setPressedKey={setPressedKey} />
-        <ArrowButton direction={"ArrowLeft"} positionInGrid={{row:2, col:1}} pressedKey={pressedKey} setPressedKey={setPressedKey} />
-        <ArrowButton direction={"ArrowRight"} positionInGrid={{row:2, col:3}} pressedKey={pressedKey} setPressedKey={setPressedKey} />
-        <ArrowButton direction={"ArrowDown"} positionInGrid={{row:3, col:2}} pressedKey={pressedKey} setPressedKey={setPressedKey} />
+    <div className='arrow-buttons max-w-[180px] grid grid-cols-3 grid-rows-3 gap-1 m-auto '>
+        <ArrowButton reff={up} direction={"ArrowUp"} pressedKey={pressedKey} setPressedKey={setPressedKey} />
+        <ArrowButton reff={left} direction={"ArrowLeft"} pressedKey={pressedKey} setPressedKey={setPressedKey} />
+        <ArrowButton reff={right} direction={"ArrowRight"} pressedKey={pressedKey} setPressedKey={setPressedKey} />
+        <ArrowButton reff={down} direction={"ArrowDown"} pressedKey={pressedKey} setPressedKey={setPressedKey} />
     </div>
   )
 }
